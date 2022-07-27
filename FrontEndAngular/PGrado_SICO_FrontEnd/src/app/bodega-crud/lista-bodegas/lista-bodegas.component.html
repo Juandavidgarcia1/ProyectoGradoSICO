@@ -1,0 +1,33 @@
+<h2>lista de bodegas</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+
+    <tr>
+      <th>ID </th>
+	  <th>ID Compania</th>
+	  <th>Codigo </th>
+	  <th>Descripcion </th>
+     <th> Funciones </th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let bodega of bodegas">
+      <td> {{bodega.id}}</td>
+	  <td> {{bodega.id_cia}}</td>
+	  <td> {{bodega.codigo}}</td>
+	  <td> {{bodega.descripcion}}</td>
+     
+      <td>
+        <button (click)="actualizarBodega(bodega.id)" class="btn btn-primary">Editar</button>
+        <button (click)="eliminarBodega(bodega.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+        <button (click)="verDetallesDelBodega(bodega.id)" class="btn btn-dark" style="margin-left: 10px;">Detalles</button>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>

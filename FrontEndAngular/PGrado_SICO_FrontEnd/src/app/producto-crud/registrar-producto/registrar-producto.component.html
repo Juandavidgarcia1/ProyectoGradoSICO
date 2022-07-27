@@ -1,0 +1,57 @@
+<div class="col-md6 offset-md-3">
+  <h3 class="text-center">Registro de producto</h3>
+
+  <form (ngSubmit)="onSubmit()" #productoForm="ngForm">
+    <div class="form-group">
+      <label>Descripcion: </label>
+      <input type="text" class="form-control" id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion"
+        required minlength="4" maxlength="150" placeholder="Digite descripcion " #descripcion="ngModel">
+
+      <!--
+      <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" class="alert">
+
+        <div *ngIf="descripcion.errors?.['required']">
+          La Descripcion es requerida.
+        </div>
+
+        <div *ngIf="descripcion.errors?.['minlength']">
+          la descripcion debe tener minímo 4 caracteres.
+        </div>
+
+        <div *ngIf="descripcion.errors?.['maxlength']">
+          la descripcion debe tener maxímo 150 caracteres.
+        </div>
+      </div>
+      -->
+    </div>
+
+    <div class="form-group">
+      <label>Stock Mininmo</label>
+      <input type="number" class="form-control" id="stockminimo" [(ngModel)]="producto.stock_minimo" name="stockminimo"
+        required maxlength="9" placeholder="Digite el stock minímo " #stock_minimo="ngModel">
+        <!--
+            <div *ngIf="(stock_minimo.dirty || stock_minimo.touched)" class="alert">
+              <div *ngIf="stock_minimo.errors?.['required']">
+                La cantidad  miníma de stock es requerida.
+              </div>
+              <div *ngIf="stock_minimo.errors?.['maxlength']">
+                el stock_minimo debe tener maxímo 9 caracteres.
+              </div>
+            </div>
+
+
+      <div class="form-group" >
+        <label>Existencia</label>
+        <input type="number" class="form-control" id="existencia" [(ngModel)]="producto.existencia" name="existencia">
+      </div>
+
+            -->
+      <p></p>
+      <div>
+        <!--<button class="btn btn-success" [disabled]="productoForm.form.valid">Guardar</button>-->
+        <button class="btn btn-success" >Guardar</button>
+
+      </div>
+    </div>
+  </form>
+</div>

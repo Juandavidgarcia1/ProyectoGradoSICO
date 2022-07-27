@@ -1,0 +1,36 @@
+<h2>lista de terceros</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+
+    <tr>
+      <th>ID</th>
+	  <th>Descripcion</th>
+      <th>Numero</th>
+	  <th>Telefono 1</th>
+	  <th>Telefono 2</th>
+	  <th>Tipo tercero</th>
+	  <th>Funciones</th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let tercero of terceros">
+      <td> {{tercero.id}}</td>
+	  <td> {{tercero.descripcion}}</td>
+	  <td> {{tercero.numero}}</td>
+	  <td> {{tercero.telefono_1}}</td>
+	  <td> {{tercero.telefono_2}}</td>
+	  <td> {{tercero.tipo_tercero}}</td>
+      <td>
+        <button (click)="actualizarTercero(tercero.id)" class="btn btn-primary">Editar</button>
+        <button (click)="eliminarTercero(tercero.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+        <button (click)="verDetallesDelTercero(tercero.id)" class="btn btn-dark" style="margin-left: 10px;">Detalles</button>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>

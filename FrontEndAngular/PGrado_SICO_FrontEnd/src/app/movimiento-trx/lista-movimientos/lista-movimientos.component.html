@@ -1,0 +1,42 @@
+<h2>lista de movimientos</h2>
+<table class="table table-striped">
+  <thead class="table-dark">
+
+    <tr>
+      <th>ID </th>
+	  <th>Naturaleza</th>
+	  <th>Producto</th>
+	  <th>Bodega</th>
+	  <th>Tercero</th>
+	  <th>Cantidad </th>
+     <th> Fecha </th>
+	  <th> Usuario </th>
+    <th> Funciones </th>
+  </tr>
+
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let movimiento of movimientos">
+      <td> {{movimiento.id}}</td>
+      <td> {{movimiento.id_naturaleza}}</td>
+      <td> {{movimiento.id_producto_movto}}</td>
+      <td> {{movimiento.id_bodega_movto}}</td>
+      <td> {{movimiento.id_tercero_movto}}</td>
+      <td> {{movimiento.cantidad_movto}}</td>
+      <td> {{movimiento.fecha_movto}}</td>
+      <td> {{movimiento.id_user}}</td>
+
+	  <td>
+        <button (click)="actualizarMovimiento(movimiento.id)" class="btn btn-primary">Editar</button>
+        <button (click)="eliminarMovimiento(movimiento.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+        <button (click)="verDetallesDelMovimiento(movimiento.id)" class="btn btn-dark" style="margin-left: 10px;">Detalles</button>
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>

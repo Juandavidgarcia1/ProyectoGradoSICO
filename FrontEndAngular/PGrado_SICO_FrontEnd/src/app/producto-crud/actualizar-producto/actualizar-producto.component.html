@@ -1,0 +1,52 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición de producto</h3>
+  <form (ngSubmit)= "onSubmit()" #productoForm = "ngForm">
+
+    <div class="form-group">
+      <label>ID: </label>
+      <input type = "number"
+      class="form-control"
+      id = "id"
+      [(ngModel)] = "producto.id"
+      name = "id"
+      disabled="true"
+      >
+
+    </div>
+    <div class="form-group">
+      <label>Descripcion: </label>
+      <input type = "text"
+      class="form-control"
+      id = "descripcion"
+      [(ngModel)] = "producto.descripcion"
+      name = "descripcion"
+      required
+      minlength="4"
+      maxlength="150"
+      placeholder="Digite descripcion "
+      #descripcion = "ngModel"
+      >
+
+    </div>
+
+    <div class="form-group">
+      <label>Stock minimo : </label>
+      <input type = "number"
+      class="form-control"
+      id = "stock_minimo"
+      [(ngModel)] = "producto.stock_minimo"
+      name = "stock_minimo"
+      required
+      minlength="4"
+      maxlength="10"
+      placeholder="Digite el stock minimo "
+      #apellido = "ngModel"
+      >
+
+
+    </div>
+
+    <p></p>
+    <button class="btn btn-success" [disabled]= "!productoForm.form.valid">Guardar</button>
+  </form>
+</div>

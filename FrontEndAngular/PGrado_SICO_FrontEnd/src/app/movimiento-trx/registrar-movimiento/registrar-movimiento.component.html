@@ -1,0 +1,68 @@
+<div class="col-md6 offset-md-3">
+  <h3 class="text-center">Registro de movimiento</h3>
+
+  <form (ngSubmit)="onSubmit()" #movimientoForm="ngForm">
+
+    <div class="form-group">
+
+      <label>Naturaleza del movimiento:</label>
+      <select class="form-control" id="naturaleza" [(ngModel)]="naturaleza" name="naturaleza">
+        <option *ngFor="let naturaleza of naturalezas" [ngValue]="naturaleza.id">{{naturaleza.descripcion}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+
+      <label>Producto</label>
+      <select class="form-control" id="producto" [(ngModel)]="producto" name="producto">
+        <option *ngFor="let producto of productos" [ngValue]="producto.id">{{producto.id}}-{{producto.descripcion}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+
+      <label>Bodega</label>
+      <select class="form-control" id="bodega" [(ngModel)]="bodega" name="bodega">
+        <option *ngFor="let bodega of bodegas" [ngValue]="bodega.id">{{bodega.codigo}}-{{bodega.descripcion}}</option>
+      </select>
+    </div>
+
+    <!-- Fin lista de la bodega-->
+
+    <div class="form-group">
+
+      <label>Seleccione el tercero:</label>
+      <select class="form-control" id="tercero" [(ngModel)]="tercero" name="tercero">
+        <option *ngFor="let tercero of terceros" [ngValue]="tercero.id">{{tercero.numero}}-{{tercero.descripcion}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Cantidad</label>
+      <input type="number" class="form-control" id="cantidad_movto" [(ngModel)]="movimiento.cantidad_movto"
+        name="cantidad_movto" required maxlength="6" placeholder="Digite la cantidad: " #cantidad_movto="ngModel">
+      <!--
+          validar
+            -->
+    </div>
+
+
+    <div class="form-group">
+      <label>Fecha del movimiento:</label>
+      <input type="date" class="form-control" id="fecha_movto" [(ngModel)]="movimiento.fecha_movto" name="fecha_movto"
+        placeholder="Seleccione la naturaleza de movimiento: " #fecha_movto="ngModel">
+      <!--
+          validar
+            -->
+    </div>
+    <!--
+  <div class="form-group">
+     <input type="number" class="form-control" id="id_user" [(ngModel)]="movimiento.id_user" name="id_user"
+       [defaultValue]=1>
+   </div>
+	-->
+    <!--<button class="btn btn-success" [disabled]="movimientoForm.form.valid">Guardar</button>-->
+    <button class="btn btn-success">Guardar</button>
+  </form>
+</div>

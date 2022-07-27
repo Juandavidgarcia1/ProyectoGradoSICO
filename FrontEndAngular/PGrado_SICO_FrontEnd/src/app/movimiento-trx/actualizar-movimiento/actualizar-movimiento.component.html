@@ -1,0 +1,87 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición de movimiento</h3>
+  <form (ngSubmit)= "onSubmit()" #movimientoForm = "ngForm">
+
+    <div class="form-group">
+      <label>ID: </label>
+      <input type = "number"
+      class="form-control"
+      id = "id"
+      [(ngModel)] = "movimiento.id"
+      name = "id"
+      disabled="true"
+      >
+
+    </div>
+
+       <!--
+
+	<div class="form-group">
+      <label>Naturaleza del movimiento:</label>
+      <input type="number" class="form-control" id="id_naturaleza" [(ngModel)]="movimiento.id_naturaleza" name="id_naturaleza"
+      >
+     </div>
+        -->
+
+     <div class="form-group">
+
+      <label>Naturaleza del movimiento:</label>
+      <select class="form-control" id="naturaleza" [(ngModel)]="naturaleza" name="naturaleza">
+        <option *ngFor="let naturaleza of naturalezas" [ngValue]="naturaleza.id">{{naturaleza.descripcion}}</option>
+      </select>
+    </div>
+
+
+	<div>
+		<label>Producto</label>
+		<input type="number" class="form-control" id="id_producto_movto" [(ngModel)]="movimiento.id_producto_movto" name="id_producto_movto"
+        required >
+        <!--
+          validar
+            -->
+    </div>
+
+
+	<div class="form-group">
+
+	   <label>Bodega</label>
+       <input type="number" class="form-control" id="id_bodega_movto" [(ngModel)]="movimiento.id_bodega_movto" name="id_bodega_movto"
+        >
+      <!--
+      validar
+      -->
+    </div>
+
+   <div class="form-group">
+    <label>Tercero</label>
+      <input type="number" class="form-control" id="id_tercero_movto" [(ngModel)]="movimiento.id_tercero_movto" name="id_tercero_movto"
+        required >
+        <!--
+          validar
+            -->
+    </div>
+
+	<div class="form-group">
+    <label>Cantidad</label>
+      <input type="number" class="form-control" id="cantidad_movto" [(ngModel)]="movimiento.cantidad_movto" name="cantidad_movto"
+        required maxlength="9">
+        <!--
+          validar
+            -->
+    </div>
+
+
+   <div class="form-group">
+	<label>Fecha del movimiento:</label>
+	  <input type="date" class="form-control" id="fecha_movto" [(ngModel)]="movimiento.fecha_movto" name="fecha_movto"
+		 >
+		<!--
+		  validar
+		  inactivar la fecha del movimiento, solo informativa
+			-->
+	</div>
+
+    <p></p>
+    <button class="btn btn-success" [disabled]= "!movimientoForm.form.valid">Guardar</button>
+  </form>
+</div>

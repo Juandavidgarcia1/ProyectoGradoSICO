@@ -1,0 +1,90 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición de tercero</h3>
+  <form (ngSubmit)= "onSubmit()" #terceroForm = "ngForm">
+
+    <div class="form-group">
+      <label>ID: </label>
+      <input type = "number"
+      class="form-control"
+      id = "id"
+      [(ngModel)] = "tercero.id"
+      name = "id"
+      disabled="true"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>Descripcion: </label>
+
+      <input type = "text"
+      class="form-control"
+      id = "descripcion"
+      [(ngModel)] = "tercero.descripcion"
+      name = "descripcion"
+      required
+      minlength="5"
+      maxlength="250"
+      placeholder="Digite descripcion "
+      #descripcion = "ngModel"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>Numero: </label>
+      <input type = "text"
+      class="form-control"
+      id = "numero"
+      [(ngModel)] = "tercero.numero"
+      name = "numero"
+      required
+      minlength="9"
+      maxlength="15"
+      placeholder="Digite el numero "
+      #numero = "ngModel"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>Telefono 1: </label>
+      <input type = "text"
+      class="form-control"
+      id = "telefono_1"
+      [(ngModel)] = "tercero.telefono_1"
+      name = "telefono_1"
+      required
+      minlength="9"
+      maxlength="15"
+      placeholder="Digite el telefono 1 "
+      #telefono_1 = "ngModel"
+      >
+    </div>
+	   <div class="form-group">
+      <label>Telefono 2: </label>
+      <input type = "text"
+      class="form-control"
+      id = "telefono_2"
+      [(ngModel)] = "tercero.telefono_2"
+      name = "telefono_2"
+      required
+      minlength="9"
+      maxlength="15"
+      placeholder="Digite el telefono 1 "
+      #telefono_2 = "ngModel"
+      >
+
+    </div>
+	 <div class="form-group">
+      <label>Tipo tercero: </label>
+      <input type = "number"
+      class="form-control"
+      id = "tipo_tercero"
+      [(ngModel)] = "tercero.tipo_tercero"
+      name = "tipo_tercero"
+      disabled="true"
+      >
+    </div>
+
+    <p></p>
+    <button class="btn btn-success" [disabled]= "!terceroForm.form.valid">Guardar</button>
+  </form>
+</div>
