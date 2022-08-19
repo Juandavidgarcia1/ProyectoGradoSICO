@@ -12,7 +12,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ActualizarProductoComponent implements OnInit {
 
   id: number;
-  producto: Producto = new Producto();
+  descripcion = '';
+  stock_minimo:number = 0;
+
+  producto: Producto = new Producto(this.descripcion,this.stock_minimo);
+
   constructor(private productoService: ProductoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {

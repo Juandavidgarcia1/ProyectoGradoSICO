@@ -12,11 +12,16 @@ import { ProductoService } from '../producto.service';
 export class DetallesProductoComponent implements OnInit {
   id:number;
   producto:Producto;
+  //variables para el constructor
+  descripcion = '';
+  stock_minimo:number = 0;
+
   constructor(private route:ActivatedRoute,private productoServicio:ProductoService) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.producto = new Producto();
+
+    this.producto = new Producto(this.descripcion,this.stock_minimo);
     this.productoServicio.obtenerProductoPorId(this.id).subscribe(dato => {
       this.producto = dato;
       Swal.fire(`Detalles del producto :${this.producto.descripcion}`);

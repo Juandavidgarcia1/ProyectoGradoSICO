@@ -10,7 +10,10 @@ import { ProductoService } from '../producto.service';
 })
 export class RegistrarProductoComponent implements OnInit {
 
-  producto: Producto = new Producto();
+  descripcion = '';
+  stock_minimo:number = 0;
+
+  producto: Producto = new Producto(this.descripcion,this.stock_minimo);
 
   constructor(private productoServicio: ProductoService, private router : Router) { }
 
