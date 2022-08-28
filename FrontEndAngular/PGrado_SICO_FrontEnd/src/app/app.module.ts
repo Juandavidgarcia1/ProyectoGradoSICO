@@ -25,12 +25,13 @@ import { ListaMovimientosComponent } from './movimiento-trx/lista-movimientos/li
 import { RegistrarMovimientoComponent } from './movimiento-trx/registrar-movimiento/registrar-movimiento.component';
 import { ActualizarMovimientoComponent } from './movimiento-trx/actualizar-movimiento/actualizar-movimiento.component';
 import { DetallesMovimientoComponent } from './movimiento-trx/detalles-movimiento/detalles-movimiento.component';
-import { ListaUsuariosComponent } from './usuario-crud/lista-usuarios/lista-usuarios.component';
-import { RegistrarUsuarioComponent } from './usuario-crud/registrar-usuario/registrar-usuario.component';
-import { ActualizarUsuarioComponent } from './usuario-crud/actualizar-usuario/actualizar-usuario.component';
-import { DetallesUsuarioComponent } from './usuario-crud/detalles-usuario/detalles-usuario.component';
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
+// external
+//import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './auth/login.component';
+import { RegistroComponent } from './auth/registro.component';
+import { MenuComponent } from './menu/menu.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +52,10 @@ import { LogoutComponent } from './logout/logout.component';
     RegistrarMovimientoComponent,
     ActualizarMovimientoComponent,
     DetallesMovimientoComponent,
-    ListaUsuariosComponent,
-    RegistrarUsuarioComponent,
-    ActualizarUsuarioComponent,
-    DetallesUsuarioComponent,
     LoginComponent,
-    LogoutComponent
+    RegistroComponent,
+    MenuComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

@@ -16,13 +16,9 @@ import { ListaMovimientosComponent } from './movimiento-trx/lista-movimientos/li
 import { RegistrarMovimientoComponent } from './movimiento-trx/registrar-movimiento/registrar-movimiento.component';
 import { ActualizarMovimientoComponent } from './movimiento-trx/actualizar-movimiento/actualizar-movimiento.component';
 import { DetallesMovimientoComponent } from './movimiento-trx/detalles-movimiento/detalles-movimiento.component';
-import { ListaUsuariosComponent } from './usuario-crud/lista-usuarios/lista-usuarios.component';
-import { RegistrarUsuarioComponent } from './usuario-crud/registrar-usuario/registrar-usuario.component';
-import { ActualizarUsuarioComponent } from './usuario-crud/actualizar-usuario/actualizar-usuario.component';
-import { DetallesUsuarioComponent } from './usuario-crud/detalles-usuario/detalles-usuario.component';
+import { MenuComponent } from './menu/menu.component';
 
-import { LoginComponent } from './login/login.component';
-import { LogoutComponent } from './logout/logout.component';
+
 import { AuthGaurdService } from './service/auth-gaurd.service';
 
 const routes: Routes = [
@@ -46,13 +42,7 @@ const routes: Routes = [
   { path: 'registrar-movimiento', component:RegistrarMovimientoComponent ,canActivate:[AuthGaurdService] },
   { path: 'actualizar-movimiento/:id', component: ActualizarMovimientoComponent  ,canActivate:[AuthGaurdService]},
   { path: 'detalles-movimiento/:id', component: DetallesMovimientoComponent ,canActivate:[AuthGaurdService] },
-  { path: 'usuarios', component: ListaUsuariosComponent ,canActivate:[AuthGaurdService] },
-  { path: '', redirectTo: 'usuarios', pathMatch: 'full' },
-  { path: 'registrar-usuario', component:RegistrarUsuarioComponent,canActivate:[AuthGaurdService] },
-  { path: 'actualizar-usuario/:id', component: ActualizarUsuarioComponent,canActivate:[AuthGaurdService] },
-  { path: 'detalles-usuario/:id', component: DetallesUsuarioComponent,canActivate:[AuthGaurdService] },
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent  ,canActivate:[AuthGaurdService]}
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
