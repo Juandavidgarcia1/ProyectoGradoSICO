@@ -16,17 +16,22 @@ import { ListaMovimientosComponent } from './movimiento-trx/lista-movimientos/li
 import { RegistrarMovimientoComponent } from './movimiento-trx/registrar-movimiento/registrar-movimiento.component';
 import { ActualizarMovimientoComponent } from './movimiento-trx/actualizar-movimiento/actualizar-movimiento.component';
 import { DetallesMovimientoComponent } from './movimiento-trx/detalles-movimiento/detalles-movimiento.component';
-import { MenuComponent } from './menu/menu.component';
-
+import { IndexComponent } from './index/index.component';
+import { LoginComponent } from './auth/login.component';
+import { RegistroComponent } from './auth/registro.component';
+import { ProdGuardService as guard } from './producto-crud/guards/prod-guard.service';
 
 import { AuthGaurdService } from './service/auth-gaurd.service';
 
 const routes: Routes = [
-  { path: 'productos', component: ListaProductosComponent ,canActivate:[AuthGaurdService] },
+  { path: '', component: IndexComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'registrar-producto', component:RegistrarProductoComponent,canActivate:[AuthGaurdService] },
-  { path: 'actualizar-producto/:id', component: ActualizarProductoComponent,canActivate:[AuthGaurdService] },
-  { path: 'detalles-producto/:id', component: DetallesProductoComponent,canActivate:[AuthGaurdService] },
+  { path: 'productos', component: ListaProductosComponent ,canActivate:[guard], data: { expectedRol: ['admin', 'user'] }},
+  { path: 'detalles-producto/:id', component: DetallesProductoComponent,canActivate:[guard], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'registrar-producto', component:RegistrarProductoComponent,canActivate:[guard], data: { expectedRol: ['admin'] }},
+  { path: 'actualizar-producto/:id', component: ActualizarProductoComponent,canActivate:[guard], data: { expectedRol: ['admin'] }},
   { path: 'bodegas', component: ListaBodegasComponent ,canActivate:[AuthGaurdService]},
   { path: '', redirectTo: 'bodegas', pathMatch: 'full' },
   { path: 'registrar-bodega', component:RegistrarBodegaComponent  ,canActivate:[AuthGaurdService]},

@@ -3,6 +3,7 @@ import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
 import { Router } from '@angular/router';
 import Swal from'sweetalert2';
+import { TokenService } from '../../service/token.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -12,10 +13,24 @@ import Swal from'sweetalert2';
 
 export class ListaProductosComponent implements OnInit {
   productos: Producto[];
-  constructor(private productoServicio: ProductoService,private router:Router) { }
+  roles: string[];
+  isAdmin = false;
+
+  constructor(
+    private productoServicio: ProductoService,
+    private router:Router,
+    private tokenService: TokenService
+   ) { }
 
   ngOnInit(): void {
     this.obtenerProductos();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
   }
 
   private obtenerProductos(){
