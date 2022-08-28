@@ -16,7 +16,7 @@ export class ProdGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     //const expectedRol = route.data.expectedRol;
-    const expectedRol = route.data.expectedRol;
+ ///   const expectedRol = route.data.expectedRol;
 
     const roles = this.tokenService.getAuthorities();
     this.realRol = 'user';
@@ -25,7 +25,7 @@ export class ProdGuardService implements CanActivate {
         this.realRol = 'admin';
       }
     });
-    if (!this.tokenService.getToken() || expectedRol.indexOf(this.realRol) === -1) {
+    if (!this.tokenService.getToken()) {//|| expectedRol.indexOf(this.realRol) === -1) {
       this.router.navigate(['/']);
       return false;
     }
