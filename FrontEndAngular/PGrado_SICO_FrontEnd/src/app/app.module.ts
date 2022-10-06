@@ -13,6 +13,8 @@ import { ListaProductosComponent } from './producto-crud/lista-productos/lista-p
 import { RegistrarProductoComponent } from './producto-crud/registrar-producto/registrar-producto.component';
 import { ActualizarProductoComponent } from './producto-crud/actualizar-producto/actualizar-producto.component';
 import { DetallesProductoComponent } from './producto-crud/detalles-producto/detalles-producto.component';
+import { interceptorProvider } from './interceptors/prod-interceptor.service';
+
 import { ListaBodegasComponent } from './bodega-crud/lista-bodegas/lista-bodegas.component';
 import { RegistrarBodegaComponent } from './bodega-crud/registrar-bodega/registrar-bodega.component';
 import { ActualizarBodegaComponent } from './bodega-crud/actualizar-bodega/actualizar-bodega.component';
@@ -63,7 +65,8 @@ import { IndexComponent } from './index/index.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [interceptorProvider],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,6 +15,7 @@ export class ProductoService {
 
   //Este metodo, nos sirve para obtener los productos (un observable es un patr0n de diseño)
   obtenerListaProductos(): Observable<Producto[]> {
+   // return this.httpClient.get<Producto[]>(this.baseURL );
     return this.httpClient.get<Producto[]>(this.baseURL + 'lista');
   }
 

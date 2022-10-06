@@ -34,6 +34,11 @@
                             <i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
                     </div>
                 </form>
+
+                  <!-- no funciona el mensaje de error, revisar la respusta del back-->
+                <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3">
+                    Fail en el login
+                </div>
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <h2>lista de bodegas</h2>
 <table class="table table-striped">
   <thead class="table-dark">
@@ -19,7 +20,7 @@
 	  <td> {{bodega.id_cia}}</td>
 	  <td> {{bodega.codigo}}</td>
 	  <td> {{bodega.descripcion}}</td>
-     
+
       <td>
         <button (click)="actualizarBodega(bodega.id)" class="btn btn-primary">Editar</button>
         <button (click)="eliminarBodega(bodega.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>

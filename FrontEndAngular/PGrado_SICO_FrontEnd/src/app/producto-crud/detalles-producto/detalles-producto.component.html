@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <h3>Detalles del Producto</h3>
 <div>
   <div>
@@ -8,5 +9,11 @@
   </div>
   <div>
     <label><b>Stock Minímo : </b> {{ producto.stock_minimo }}</label>
-  </div>
+
+    <div>
+      <!--<button class="btn btn-success" [disabled]="productoForm.form.valid">Guardar</button>-->
+      <button class="btn btn-success" >Imprimir PDF</button>
+
+    </div>
+
 </div>
