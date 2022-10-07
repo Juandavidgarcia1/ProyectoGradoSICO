@@ -1,34 +1,40 @@
 <app-menu></app-menu>
-<h2>lista de bodegas</h2>
-<table class="table table-striped">
-  <thead class="table-dark">
+  <div id="content" #content class="margen">
+<h3 >lista de bodegas - <button (click)="GenerarPdf()"><i class="bi bi-file-pdf"></i></button></h3>
 
+<table class="table table-responsive-xxl table-sm" >
+
+  <thead class="table-dark">
     <tr>
-      <th>ID </th>
+      <th >ID </th>
 	  <th>ID Compania</th>
 	  <th>Codigo </th>
 	  <th>Descripcion </th>
+
      <th> Funciones </th>
     </tr>
 
-  </thead>
 
-  <tbody>
+ </thead>
+
+  <!--<tbody>-->
 
     <tr *ngFor="let bodega of bodegas">
-      <td> {{bodega.id}}</td>
+
+      <td > {{bodega.id}}</td>
 	  <td> {{bodega.id_cia}}</td>
 	  <td> {{bodega.codigo}}</td>
 	  <td> {{bodega.descripcion}}</td>
 
-      <td>
-        <button (click)="actualizarBodega(bodega.id)" class="btn btn-primary">Editar</button>
-        <button (click)="eliminarBodega(bodega.id)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
-        <button (click)="verDetallesDelBodega(bodega.id)" class="btn btn-dark" style="margin-left: 10px;">Detalles</button>
+
+    <td>
+        <button (click)="actualizarBodega(bodega.id)" class="btn btn-primary  btn-sm"><i class="bi bi-sd-card"></i></button>
+        <button (click)="eliminarBodega(bodega.id)" class="btn btn-danger btn-sm" style="margin-left: 10px;"><i class="bi bi-trash3-fill"></i></button>
+        <button (click)="verDetallesDelBodega(bodega.id)" class="btn btn-dark  btn-sm" style="margin-left: 10px;"><i class="bi bi-eyeglasses"></i></button>
       </td>
 
     </tr>
 
-  </tbody>
-
+  <!--</tbody>-->
 </table>
+</div>

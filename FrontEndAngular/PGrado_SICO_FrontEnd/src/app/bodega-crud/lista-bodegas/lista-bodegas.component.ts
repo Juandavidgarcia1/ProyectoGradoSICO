@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import jsPDF from 'jspdf';
 import { Bodega } from '../bodega';
 import { BodegaService } from '../bodega.service';
 import { Router } from '@angular/router';
 import Swal from'sweetalert2';
+
 
 @Component({
   selector: 'app-lista-bodegas',
@@ -21,9 +23,24 @@ export class ListaBodegasComponent implements OnInit {
   private obtenerBodegas(){
     this.bodegaServicio.obtenerListaBodegas().subscribe(dato=> {
       this.bodegas = dato;
+
     });
 
   }
+
+  //Generador de PDF
+  @ViewChild('content', { static: false }) el!: ElementRef;
+  GenerarPdf() {
+    //let pdf = new jsPDF('p', 'pt', 'a2');
+    let pdf = new jsPDF('p', 'pt', 'a1');
+    pdf.html(this.el.nativeElement, {
+      callback: (pdf) => {
+        pdf.save("Documento-Actual.pdf")
+      }
+    })
+  }
+
+
 
  actualizarBodega(id:number){
     this.router.navigate(['actualizar-bodega',id]);
