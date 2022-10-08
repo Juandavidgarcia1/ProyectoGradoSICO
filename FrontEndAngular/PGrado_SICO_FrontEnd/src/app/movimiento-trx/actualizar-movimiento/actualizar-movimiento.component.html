@@ -27,40 +27,51 @@
      <div class="form-group">
 
       <label>Naturaleza del movimiento:</label>
-      <select class="form-control" id="naturaleza" [(ngModel)]="naturaleza" name="naturaleza">
-        <option *ngFor="let naturaleza of naturalezas" [ngValue]="naturaleza.id">{{naturaleza.descripcion}}</option>
+      <select class="form-control" id="naturaleza" [(ngModel)]="naturaleza" name="naturaleza" value="movimiento.id_naturaleza">
+        <option *ngFor="let naturaleza of naturalezas">
+            {{movimiento.id_naturaleza}}-{{naturaleza.descripcion}}
+      </option>
       </select>
     </div>
 
+    <div class="form-group">
+
+      <label>Producto</label>
+      <select class="form-control" id="producto" [(ngModel)]="producto" name="producto" value="movimiento.id_producto_movto">
+        <option *ngFor="let producto of productos">
+            {{movimiento.id_producto_movto}}-{{producto.descripcion}}
+      </option>
+      </select>
+    </div>
+
+ <!--
 
 	<div>
 		<label>Producto</label>
 		<input type="number" class="form-control" id="id_producto_movto" [(ngModel)]="movimiento.id_producto_movto" name="id_producto_movto"
-        required >
-        <!--
-          validar
-            -->
-    </div>
-
-
-	<div class="form-group">
-
-	   <label>Bodega</label>
-       <input type="number" class="form-control" id="id_bodega_movto" [(ngModel)]="movimiento.id_bodega_movto" name="id_bodega_movto"
+        required
         >
-      <!--
-      validar
-      -->
-    </div>
-
-   <div class="form-group">
-    <label>Tercero</label>
-      <input type="number" class="form-control" id="id_tercero_movto" [(ngModel)]="movimiento.id_tercero_movto" name="id_tercero_movto"
-        required >
-        <!--
           validar
-            -->
     </div>
+ -->
+
+ <div class="form-group">
+  <label>Bodega</label>
+  <select class="form-control" id="bodega" [(ngModel)]="bodega" name="bodega" value="movimiento.id_bodega_movto">
+    <option *ngFor="let bodega of bodegas">
+        {{movimiento.id_bodega_movto}}-{{bodega.descripcion}}
+  </option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Tercero</label>
+  <select class="form-control" id="tercero" [(ngModel)]="tercero" name="tercero" value="movimiento.id_tercero_movto">
+    <option *ngFor="let tercero of terceros">
+        {{tercero.numero}}-{{tercero.descripcion}}
+  </option>
+  </select>
+</div>
 
 	<div class="form-group">
     <label>Cantidad</label>

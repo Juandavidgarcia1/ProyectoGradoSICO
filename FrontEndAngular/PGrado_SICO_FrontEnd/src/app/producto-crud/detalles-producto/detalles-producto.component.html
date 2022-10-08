@@ -1,5 +1,7 @@
 <app-menu></app-menu>
-<h3>Detalles del Producto</h3>
+
+<div id="content" #content class="margen">
+<h3>Detalles del Producto  - <button (click)="GenerarPdf()"><i class="bi bi-file-pdf"></i></button></h3>
 <div>
   <div>
     <label><b>ID : </b> {{ producto.id }}</label>
@@ -10,10 +12,5 @@
   <div>
     <label><b>Stock Minímo : </b> {{ producto.stock_minimo }}</label>
 
-    <div>
-      <!--<button class="btn btn-success" [disabled]="productoForm.form.valid">Guardar</button>-->
-      <button class="btn btn-success" >Imprimir PDF</button>
-
-    </div>
-
+</div>
 </div>

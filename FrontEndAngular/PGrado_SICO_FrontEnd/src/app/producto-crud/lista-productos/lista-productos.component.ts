@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import jsPDF from 'jspdf';
 import { Producto } from '../producto';
 import { ProductoService } from '../producto.service';
 import { Router } from '@angular/router';
@@ -77,6 +78,20 @@ export class ListaProductosComponent implements OnInit {
 verDetallesDelProducto(id:number){
   this.router.navigate(['detalles-producto',id]);
 }
+
+
+//Generador de PDF
+@ViewChild('content', { static: false }) el!: ElementRef;
+GenerarPdf() {
+  //let pdf = new jsPDF('p', 'pt', 'a2');
+  let pdf = new jsPDF('p', 'pt', 'a1');
+  pdf.html(this.el.nativeElement, {
+    callback: (pdf) => {
+      pdf.save("Documento-Actual.pdf")
+    }
+  })
+}
+
 
 }
 

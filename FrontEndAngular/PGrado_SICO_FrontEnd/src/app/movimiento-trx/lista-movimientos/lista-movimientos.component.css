@@ -1,0 +1,15 @@
+
+.margen
+{
+    /*width: 300px;*/
+    margin-left: 40px;
+    margin-right: auto;
+}
+
+h3 {
+  text-align: center;
+}
+
+.margencentro{
+  text-align: center;
+}

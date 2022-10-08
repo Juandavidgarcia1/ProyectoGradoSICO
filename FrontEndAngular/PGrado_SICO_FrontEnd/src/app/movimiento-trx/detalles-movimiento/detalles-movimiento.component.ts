@@ -1,5 +1,6 @@
 import  Swal  from 'sweetalert2';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import jsPDF from 'jspdf';
 import { Movimiento } from '../movimiento';
 import { ActivatedRoute } from '@angular/router';
 import { MovimientoService } from '../movimiento.service';
@@ -23,5 +24,18 @@ export class DetallesMovimientoComponent implements OnInit {
       Swal.fire(`Detalles del movimiento :${this.movimiento.id}`);
     });
   }
+
+
+//Generador de PDF
+@ViewChild('content', { static: false }) el!: ElementRef;
+GenerarPdf() {
+  //let pdf = new jsPDF('p', 'pt', 'a2');
+  let pdf = new jsPDF('p', 'pt', 'a1');
+  pdf.html(this.el.nativeElement, {
+    callback: (pdf) => {
+      pdf.save("Documento-Actual.pdf")
+    }
+  })
+}
 
 }

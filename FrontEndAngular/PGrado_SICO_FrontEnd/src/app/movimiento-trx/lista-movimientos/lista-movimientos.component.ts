@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import jsPDF from 'jspdf';
 import { Movimiento } from '../movimiento';
 import { MovimientoService } from '../movimiento.service';
 import { Router } from '@angular/router';
@@ -29,8 +30,6 @@ export class ListaMovimientosComponent implements OnInit {
     this.router.navigate(['actualizar-movimiento',id]);
   }
 
-
-
   eliminarMovimiento(id:number){
     Swal.fire({
       title: '¿Estas seguro?',
@@ -58,10 +57,22 @@ export class ListaMovimientosComponent implements OnInit {
     })
   }
 //Fin eliminar un movimiento
-
 verDetallesDelMovimiento(id:number){
   this.router.navigate(['detalles-movimiento',id]);
 }
+
+//Generador de PDF
+@ViewChild('content', { static: false }) el!: ElementRef;
+GenerarPdf() {
+  //let pdf = new jsPDF('p', 'pt', 'a2');
+  let pdf = new jsPDF('p', 'pt', 'a1');
+  pdf.html(this.el.nativeElement, {
+    callback: (pdf) => {
+      pdf.save("Documento-Actual.pdf")
+    }
+  })
+}
+
 
 }
 

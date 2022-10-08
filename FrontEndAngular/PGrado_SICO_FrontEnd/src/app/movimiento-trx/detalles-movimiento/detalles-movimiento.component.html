@@ -1,5 +1,6 @@
 <app-menu></app-menu>
-<h3>Detalles del Movimiento</h3>
+<div id="content" #content class="margen">
+<h3>Detalles del Movimiento - <button (click)="GenerarPdf()"><i class="bi bi-file-pdf"></i></button></h3>
 <div>
   <div>
     <label><b>ID : </b> {{ movimiento.id }}</label>

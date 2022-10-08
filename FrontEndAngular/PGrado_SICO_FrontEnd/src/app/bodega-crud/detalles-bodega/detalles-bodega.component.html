@@ -1,7 +1,7 @@
 <app-menu></app-menu>
-<div id="content" #content >
-  <h3>Detalles del Bodega - <button (click)="GenerarPdf()"><i class="bi bi-file-pdf"></i></button></h3>
-  <div class="margencentro">
+<div id="content" #content class="margen">
+  <h3>Detalles Bodega - <button (click)="GenerarPdf()"><i class="bi bi-file-pdf"></i></button></h3>
+
     <div>
       <label><b>ID : </b> {{ bodega.id }}</label>
     </div>
@@ -17,4 +17,3 @@
 
 
   </div>
-</div>

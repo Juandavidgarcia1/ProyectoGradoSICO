@@ -18,7 +18,7 @@ export class MovimientoService {
  //Url que contiene todas las naturalezas con el fin de hacer el dropdownlist
  private baseURLNaturaleza = "http://localhost:8080/api/v1/naturalezas";
  //Url que contiene todas los productos con el fin de hacer el dropdownlist
- private baseURLProductos = "http://localhost:8080/api/v1/productos";
+ private baseURLProductos = "http://localhost:8080/api/v1/productos/lista";
   //Url que contiene todas las naturalezas con el fin de hacer el dropdownlist
   private baseURLTerceros = "http://localhost:8080/api/v1/terceros";
 
