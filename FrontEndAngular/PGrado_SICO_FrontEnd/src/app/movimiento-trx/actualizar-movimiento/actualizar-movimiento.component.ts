@@ -13,18 +13,17 @@ export class ActualizarMovimientoComponent implements OnInit {
 
   id: number;
 
+  bodegas: any;// lista de Bodegas
+  bodega: number;// lista de Bodegas
 
-  bodegas:any;// lista de Bodegas
-  bodega:number;// lista de Bodegas
+  naturalezas: any;// lista de Naturaleza
+  naturaleza: number;// lista de Naturaleza
 
-  naturalezas:any;// lista de Naturaleza
-  naturaleza:number;// lista de Naturaleza
+  productos: any;// lista de productos
+  producto: number;// lista de productos
 
-  productos:any;// lista de productos
-  producto:number;// lista de productos
-
-  terceros:any;// lista de terceros
-  tercero:number;// lista de terceros
+  terceros: any;// lista de terceros
+  tercero: number;// lista de terceros
 
   movimiento: Movimiento = new Movimiento();
   constructor(private movimientoServicio: MovimientoService, private router: Router, private route: ActivatedRoute) { }
@@ -35,7 +34,6 @@ export class ActualizarMovimientoComponent implements OnInit {
     this.obtenerNaturalezas();
     this.obtenerProductos();
     this.obtenerTerceros();
-
 
     this.naturaleza = this.movimiento.id_naturaleza
 
@@ -51,38 +49,44 @@ export class ActualizarMovimientoComponent implements OnInit {
   }
 
   onSubmit() {
-    this.movimientoServicio.actualizarMovimiento(this.id, this.movimiento).subscribe(dato => {
-      this.irAlaListaDeMovimientos();
-    }, error => console.log(error));
+    if (this.movimiento.cantidad_movto < 1) {
+      Swal.fire('Movimiento', `El movimiento id:${this.movimiento.id}, No puede ser menor a 1`, `success`);
+    } else {
+      this.movimientoServicio.actualizarMovimiento(this.id, this.movimiento).subscribe(dato => {
+        this.irAlaListaDeMovimientos();
+      }, error => console.log(error));
+
+    }
+
   }
 
-//Dropdown list inicio
+  //Dropdown list inicio
 
   //Lista de bodegas
-  private obtenerBodegas(){
-    this.movimientoServicio.obtenerListaBodegas().subscribe(dato=> {
+  private obtenerBodegas() {
+    this.movimientoServicio.obtenerListaBodegas().subscribe(dato => {
       this.bodegas = dato;
     });
 
   }
 
   //Lista de naturalezas
-  private obtenerNaturalezas(){
-    this.movimientoServicio.obtenerListaNaturalezas().subscribe(dato=> {
+  private obtenerNaturalezas() {
+    this.movimientoServicio.obtenerListaNaturalezas().subscribe(dato => {
       this.naturalezas = dato;
     });
   }
 
   //Lista de productos
-  private obtenerProductos(){
-    this.movimientoServicio.obtenerListaProductos().subscribe(dato=> {
+  private obtenerProductos() {
+    this.movimientoServicio.obtenerListaProductos().subscribe(dato => {
       this.productos = dato;
     });
   }
 
   //Lista de terceros
-  private obtenerTerceros(){
-    this.movimientoServicio.obtenerListaTerceros().subscribe(dato=> {
+  private obtenerTerceros() {
+    this.movimientoServicio.obtenerListaTerceros().subscribe(dato => {
       this.terceros = dato;
     });
   }

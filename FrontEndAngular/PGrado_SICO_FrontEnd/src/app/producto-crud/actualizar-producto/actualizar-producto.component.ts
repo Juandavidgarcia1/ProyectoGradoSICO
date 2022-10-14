@@ -32,8 +32,25 @@ export class ActualizarProductoComponent implements OnInit {
   }
 
   onSubmit() {
+
+    //validar si el producto, tiene movimientos.
+    
+
+    //Cuando la cantidad de stock minimo es igual a cero, entonces no genera alerta.
+    if (this.producto.stock_minimo < 0) {
+      Swal.fire('Producto', `La cantidad de stock del producto, no puede ser menor a 0`, `success`);
+    }else if (this.producto.descripcion === "")
+      Swal.fire('Producto', `La descripción del producto, no puede ser vacia`, `success`);
+    else {
+      this.guardarProducto();
+    }
+
+  }
+
+  guardarProducto(){
     this.productoService.actualizarProducto(this.id, this.producto).subscribe(dato => {
       this.irAlaListaDeEmpleados();
     }, error => console.log(error));
   }
+
 }

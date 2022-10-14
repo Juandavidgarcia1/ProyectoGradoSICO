@@ -66,8 +66,8 @@
 
 <div class="form-group">
   <label>Tercero</label>
-  <select class="form-control" id="tercero" [(ngModel)]="tercero" name="tercero" value="movimiento.id_tercero_movto">
-    <option *ngFor="let tercero of terceros">
+  <select class="form-control" id="tercero" [(ngModel)]="tercero" name="tercero" >
+    <option *ngFor="let tercero of terceros" [ngValue]="tercero.id">
         {{tercero.numero}}-{{tercero.descripcion}}
   </option>
   </select>
@@ -94,6 +94,8 @@
 	</div>
 
     <p></p>
-    <button class="btn btn-success" [disabled]= "!movimientoForm.form.valid">Guardar</button>
+    <div >
+      <button class="btn btn-success" [disabled]= "!movimientoForm.form.valid">Guardar</button>
+    </div>
   </form>
 </div>

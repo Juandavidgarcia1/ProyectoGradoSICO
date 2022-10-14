@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Producto } from './producto';
 import { HttpClient } from '@angular/common/http';
+import { Movimiento } from '../movimiento-trx/movimiento';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class ProductoService {
 
   //Url contiene todos los productos de la base de datos.
   private baseURL = "http://localhost:8080/api/v1/productos/";
+  //Url contiene todos los movimientos de la base de datos.
+  private baseURLMovto = "http://localhost:8080/api/v1/movimientos";
 
   constructor(private httpClient: HttpClient) { }
 
@@ -43,6 +46,11 @@ export class ProductoService {
   //Este metodo, nos sirve para eliminar un producto
   eliminarProducto(id:number): Observable<object> {
     return this.httpClient.delete(`${this.baseURL}delete/${id}`);
+  }
+
+  //Este metodo, nos sirve para obtener las bodegas (un observable es un patr0n de diseño)
+  obtenerListaMovtos(): Observable<Movimiento[]> {
+    return this.httpClient.get<Movimiento[]>(`${this.baseURLMovto}`);
   }
 
 }
