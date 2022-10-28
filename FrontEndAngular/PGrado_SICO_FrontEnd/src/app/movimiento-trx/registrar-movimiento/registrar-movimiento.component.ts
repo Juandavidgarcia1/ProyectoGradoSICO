@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
 import { Movimiento } from '../movimiento';
@@ -48,6 +49,22 @@ export class RegistrarMovimientoComponent implements OnInit {
       console.log(dato);
       this.irAlaListaDeMovimientos();
     },error => console.log(error));
+
+
+    this.movimientoServicio.registrarMovimiento(this.movimiento).subscribe(
+      data => {
+        Swal.fire('Movimiento', `El Movimiento ha sido actualizado con exito`, `success`);
+        this.irAlaListaDeMovimientos();
+
+    },
+      err => {
+        Swal.fire('Movimiento', `La cantidad en existencia es menor a la cantidada que intenta sacar`, `success`);
+        // this.router.navigate(['/']);
+      }
+    )
+
+
+
   }
 
   irAlaListaDeMovimientos(){
