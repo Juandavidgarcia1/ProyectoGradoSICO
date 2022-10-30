@@ -13,9 +13,9 @@ export class ActualizarProductoComponent implements OnInit {
 
   id: number;
   descripcion = '';
-  stock_minimo:number = 0;
+  stock_minimo: number = 0;
 
-  producto: Producto = new Producto(this.descripcion,this.stock_minimo);
+  producto: Producto = new Producto(this.descripcion, this.stock_minimo);
 
   constructor(private productoService: ProductoService, private router: Router, private route: ActivatedRoute) { }
 
@@ -34,12 +34,18 @@ export class ActualizarProductoComponent implements OnInit {
   onSubmit() {
 
     //validar si el producto, tiene movimientos.
-    
+    /*
+      this.productoService.(this.id, this.producto).subscribe(dato => {
+        this.irAlaListaDeEmpleados();
+      }, error =>
+        Swal.fire('Producto', error.error.mensaje, `error`)
+      );
+    */
 
     //Cuando la cantidad de stock minimo es igual a cero, entonces no genera alerta.
     if (this.producto.stock_minimo < 0) {
       Swal.fire('Producto', `La cantidad de stock del producto, no puede ser menor a 0`, `success`);
-    }else if (this.producto.descripcion === "")
+    } else if (this.producto.descripcion === "")
       Swal.fire('Producto', `La descripción del producto, no puede ser vacia`, `success`);
     else {
       this.guardarProducto();
@@ -47,10 +53,14 @@ export class ActualizarProductoComponent implements OnInit {
 
   }
 
-  guardarProducto(){
+  guardarProducto() {
+
     this.productoService.actualizarProducto(this.id, this.producto).subscribe(dato => {
       this.irAlaListaDeEmpleados();
-    }, error => console.log(error));
+    }, error =>
+      Swal.fire('Producto', error.error.mensaje, `error`)
+    );
+
   }
 
 }

@@ -44,12 +44,12 @@ export class RegistrarMovimientoComponent implements OnInit {
     this.movimiento.id_tercero_movto = this.tercero;
 
     //console.log( this.bodegas.id);
-
+/*
     this.movimientoServicio.registrarMovimiento(this.movimiento).subscribe(dato => {
       console.log(dato);
       this.irAlaListaDeMovimientos();
     },error => console.log(error));
-
+*/
 
     this.movimientoServicio.registrarMovimiento(this.movimiento).subscribe(
       data => {
@@ -57,8 +57,9 @@ export class RegistrarMovimientoComponent implements OnInit {
         this.irAlaListaDeMovimientos();
 
     },
-      err => {
-        Swal.fire('Movimiento', `La cantidad en existencia es menor a la cantidada que intenta sacar`, `success`);
+      error => {
+
+        Swal.fire('Movimiento', error.error.mensaje, `error`);
         // this.router.navigate(['/']);
       }
     )
@@ -74,6 +75,7 @@ export class RegistrarMovimientoComponent implements OnInit {
   onSubmit() {
     console.log(this.movimiento);
     this.guardarMovimiento();
+
   }
 
   //Lista de bodegas

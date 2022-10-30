@@ -22,10 +22,18 @@ export class RegistrarProductoComponent implements OnInit {
   }
 
   guardarProducto(){
+
     this.productoServicio.registrarProducto(this.producto).subscribe(dato => {
-      console.log(dato);
       this.irAlaListaDeEmpleados();
-    },error => console.log(error));
+      //Swal.fire('Producto', 'Producto Creado con exito', `success`)
+
+    },error =>
+
+    //console.log(error)
+      Swal.fire('Producto', error.error.mensaje, `success`)
+      
+    );
+
   }
 
   irAlaListaDeEmpleados(){
