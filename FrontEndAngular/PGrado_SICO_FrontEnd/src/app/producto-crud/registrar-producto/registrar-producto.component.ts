@@ -31,7 +31,7 @@ export class RegistrarProductoComponent implements OnInit {
 
     //console.log(error)
       Swal.fire('Producto', error.error.mensaje, `success`)
-      
+
     );
 
   }
@@ -48,7 +48,7 @@ export class RegistrarProductoComponent implements OnInit {
     }else if (this.producto.descripcion === "")
       Swal.fire('Producto', `La descripción del producto, no puede ser vacia`, `success`);
     else {
-      this.guardarProducto();
+       this.guardarProducto();
     }
   }
 

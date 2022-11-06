@@ -50,11 +50,7 @@ export class ListaProductosComponent implements OnInit {
     this.router.navigate(['actualizar-producto', id]);
   }
 
-  private obtenerMovimientos() {
-    this.productoServicio.obtenerListaMovtos().subscribe(dato => {
-      this.movimientos = dato;
-    });
-  }
+
   eliminarProducto(id: number) {
 
     Swal.fire({
@@ -71,27 +67,14 @@ export class ListaProductosComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
 
-        //Consulta movimientos
-        //this.obtenerMovimientos();
-        var boolExisteMovto = false;
-
-        //Se recorren los movimientos para ver si existe el Id producto
-       /* for (let movimiento of this.movimientos) {
-          //console.log(movto.id_producto_movto);
-          if (movimiento.id_producto_movto === id) {
-            boolExisteMovto = true;
+        this.productoServicio.eliminarProducto(id).subscribe(data => {
+          Swal.fire('Producto eliminado', 'El producto ha sido eliminado con exito', 'success')
+          this.obtenerProductos();
+        },
+          error => {
+            Swal.fire('Producto', error.error.mensaje, `error`);
           }
-        }
-*/
-        if (boolExisteMovto) {
-          Swal.fire('Producto', 'El producto no puede ser eliminado por que existen movimientos', 'success')
-        } else {
-          this.productoServicio.eliminarProducto(id).subscribe(dato => {
-            //console.log(dato);
-            this.obtenerProductos();
-            Swal.fire('Producto eliminado', 'El producto ha sido eliminado con exito', 'success')
-          })
-        }
+        )
 
       } //si la respuesta es si, realiza lo de arriba
     })
