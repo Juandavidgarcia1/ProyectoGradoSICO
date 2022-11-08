@@ -45,15 +45,6 @@ export class RegistrarMovimientoComponent implements OnInit {
     this.movimiento.id_producto_movto = this.producto;
     this.movimiento.id_tercero_movto = this.tercero;
 
-    //console.log( this.bodegas.id);
-/*
-    this.movimientoServicio.registrarMovimiento(this.movimiento).subscribe(dato => {
-      console.log(dato);
-      this.irAlaListaDeMovimientos();
-    },error => console.log(error));
-*/
-   // msg:any;
-
     this.movimientoServicio.registrarMovimiento(this.movimiento).subscribe(
       dato => {
         console.log(dato);
