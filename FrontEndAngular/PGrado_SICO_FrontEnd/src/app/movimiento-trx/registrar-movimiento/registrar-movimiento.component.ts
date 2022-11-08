@@ -25,6 +25,8 @@ export class RegistrarMovimientoComponent implements OnInit {
 
   movimiento: Movimiento = new Movimiento();
 
+  msg:any;
+
   constructor(private movimientoServicio: MovimientoService, private router : Router) { }
 
   ngOnInit(): void {
@@ -50,10 +52,16 @@ export class RegistrarMovimientoComponent implements OnInit {
       this.irAlaListaDeMovimientos();
     },error => console.log(error));
 */
+   // msg:any;
 
     this.movimientoServicio.registrarMovimiento(this.movimiento).subscribe(
-      data => {
-        Swal.fire('Movimiento', `El Movimiento ha sido actualizado con exito`, `success`);
+      dato => {
+        console.log(dato);
+      this.msg =dato;
+
+      console.log(this.msg.mensaje);
+
+        Swal.fire('Movimiento', this.msg.mensaje , `success`);
         this.irAlaListaDeMovimientos();
 
     },

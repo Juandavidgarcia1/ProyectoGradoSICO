@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Bodega } from '../bodega';
 import { BodegaService } from '../bodega.service';
 
@@ -28,7 +29,12 @@ export class RegistrarBodegaComponent implements OnInit {
     this.bodegaServicio.registrarBodega(this.bodega).subscribe(dato => {
       console.log(dato);
       this.irAlaListaDeBodegas();
-    },error => console.log(error));
+    },error =>
+      Swal.fire('Bodega', error.error.mensaje, `success`)
+
+    );
+
+
   }
 
   irAlaListaDeBodegas(){

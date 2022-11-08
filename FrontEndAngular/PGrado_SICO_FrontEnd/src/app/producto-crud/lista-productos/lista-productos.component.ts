@@ -72,7 +72,13 @@ export class ListaProductosComponent implements OnInit {
           this.obtenerProductos();
         },
           error => {
-            Swal.fire('Producto', error.error.mensaje, `error`);
+
+            if (error.error.mensaje==null){
+              Swal.fire('Producto', 'No se puede eliminar el producto por que tiene movimientos o error indefinido', `error`);
+            }else{
+              Swal.fire('Producto', error.error.mensaje, `error`);
+            }
+
           }
         )
 

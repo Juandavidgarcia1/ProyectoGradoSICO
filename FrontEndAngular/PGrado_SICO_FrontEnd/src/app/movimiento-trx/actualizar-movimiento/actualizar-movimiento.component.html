@@ -44,17 +44,6 @@
       </select>
     </div>
 
- <!--
-
-	<div>
-		<label>Producto</label>
-		<input type="number" class="form-control" id="id_producto_movto" [(ngModel)]="movimiento.id_producto_movto" name="id_producto_movto"
-        required
-        >
-          validar
-    </div>
- -->
-
  <div class="form-group">
   <label>Bodega</label>
   <select class="form-control" id="bodega" [(ngModel)]="bodega" name="bodega" value="movimiento.id_bodega_movto">
@@ -77,21 +66,19 @@
     <label>Cantidad</label>
       <input type="number" class="form-control" id="cantidad_movto" [(ngModel)]="movimiento.cantidad_movto" name="cantidad_movto"
         required maxlength="9">
-        <!--
-          validar
-            -->
+
     </div>
 
+	<!--
 
    <div class="form-group">
 	<label>Fecha del movimiento:</label>
 	  <input type="date" class="form-control" id="fecha_movto" [(ngModel)]="movimiento.fecha_movto" name="fecha_movto"
 		 >
-		<!--
 		  validar
 		  inactivar la fecha del movimiento, solo informativa
-			-->
-	</div>
+		</div>
+-->
 
     <p></p>
     <div >

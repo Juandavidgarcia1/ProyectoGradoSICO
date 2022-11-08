@@ -14,13 +14,13 @@ export class MovimientoService {
   //Url contiene todos los movimientos de la base de datos.
   private baseURL = "http://localhost:8080/api/v1/movimientos";
   //Url que contiene todas las bodegas con el fin de hacer el dropdownlist
-  private baseURLBodega = "http://localhost:8080/api/v1/bodegas";
+  private baseURLBodega = "http://localhost:8080/api/v1/bodegas/listaBodegas";
  //Url que contiene todas las naturalezas con el fin de hacer el dropdownlist
  private baseURLNaturaleza = "http://localhost:8080/api/v1/naturalezas";
  //Url que contiene todas los productos con el fin de hacer el dropdownlist
  private baseURLProductos = "http://localhost:8080/api/v1/productos/lista";
   //Url que contiene todas las naturalezas con el fin de hacer el dropdownlist
-  private baseURLTerceros = "http://localhost:8080/api/v1/terceros";
+  private baseURLTerceros = "http://localhost:8080/api/v1/terceros/listaTerceros";
 
   //mensaje: string = "";
 

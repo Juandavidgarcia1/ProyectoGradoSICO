@@ -19,7 +19,10 @@ export class ActualizarBodegaComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.bodegaService.obtenerBodegaPorId(this.id).subscribe(dato => {
       this.bodega = dato;
-    }, error => console.log(error));
+    }, error =>
+      //console.log(error)
+      Swal.fire('Bodega', error.error.mensaje, `success`)
+    );
   }
 
   irAlaListaDeBodegas() {
