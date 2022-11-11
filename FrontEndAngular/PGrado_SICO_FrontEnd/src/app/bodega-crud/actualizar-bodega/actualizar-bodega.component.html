@@ -16,6 +16,7 @@
 
     </div>
 
+    <!--
 	 <div class="form-group">
       <label>Compania: </label>
       <input type = "number"
@@ -25,8 +26,21 @@
       name = "id"
       disabled="true"
       >
-
     </div>
+
+    disabled="true"
+  -->
+ <div class="form-group">
+  <label>compania:</label>
+  <select class="form-control"  [(ngModel)]="compania" name="compania"   id = "compania" name = "compania"   disabled="true">
+
+    <option *ngFor="let compania of companias" [value]="compania.id"   >
+    <!--    <label *ngIf="bodega.id_cia==compania.id" >-->
+          {{ compania.id }}-{{ compania.descripcion }}
+        <!--</label>-->
+    </option>
+  </select>
+</div>
 
 	 <div class="form-group">
       <label>Codigo: </label>
@@ -39,6 +53,7 @@
       maxlength="3"
       placeholder="codigo"
       #codigo = "ngModel"
+      disabled="true"
       >
 	</div>
 

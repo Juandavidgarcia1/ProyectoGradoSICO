@@ -29,7 +29,7 @@
       <label>Naturaleza del movimiento:</label>
       <select class="form-control" id="naturaleza" [(ngModel)]="naturaleza" name="naturaleza" value="movimiento.id_naturaleza">
         <option *ngFor="let naturaleza of naturalezas">
-            {{movimiento.id_naturaleza}}-{{naturaleza.descripcion}}
+            {{naturaleza.id}}-{{naturaleza.descripcion}}
       </option>
       </select>
     </div>

@@ -8,9 +8,12 @@
     <div>
       <label><b>Codigo : </b> {{ bodega.codigo }}</label>
     </div>
-    <div>
-      <label><b>Compania : </b> {{ bodega.id_cia }}</label>
+
+    <div *ngFor="let compania of companias"  value="bodega.id_cia">
+      <label *ngIf="bodega.id_cia==compania.id"><b >Compania : </b>{{ compania.id_cia }}-{{ compania.descripcion }}</label>
     </div>
+
+
     <div>
       <label><b>Descripción : </b> {{ bodega.descripcion }}</label>
     </div>

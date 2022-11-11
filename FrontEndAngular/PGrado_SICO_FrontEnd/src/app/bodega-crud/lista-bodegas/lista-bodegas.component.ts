@@ -21,7 +21,9 @@ export class ListaBodegasComponent implements OnInit {
   }
 
   private obtenerBodegas(){
+
     this.bodegaServicio.obtenerListaBodegas().subscribe(dato=> {
+      console.log(dato);
       this.bodegas = dato;
 
     });

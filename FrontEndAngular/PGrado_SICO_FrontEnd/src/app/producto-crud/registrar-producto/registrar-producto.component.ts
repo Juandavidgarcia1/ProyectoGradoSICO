@@ -12,31 +12,28 @@ import Swal from 'sweetalert2';
 export class RegistrarProductoComponent implements OnInit {
 
   descripcion = '';
-  stock_minimo:number = 0;
-  producto: Producto = new Producto(this.descripcion,this.stock_minimo);
+  stock_minimo: number = 0;
+  producto: Producto = new Producto(this.descripcion, this.stock_minimo);
 
-   constructor(private productoServicio: ProductoService, private router : Router) { }
+  constructor(private productoServicio: ProductoService, private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.producto);
   }
 
-  guardarProducto(){
+  guardarProducto() {
 
     this.productoServicio.registrarProducto(this.producto).subscribe(dato => {
       this.irAlaListaDeEmpleados();
-      //Swal.fire('Producto', 'Producto Creado con exito', `success`)
+    }, error =>
 
-    },error =>
-
-    //console.log(error)
       Swal.fire('Producto', error.error.mensaje, `success`)
 
     );
 
   }
 
-  irAlaListaDeEmpleados(){
+  irAlaListaDeEmpleados() {
     this.router.navigate(['/productos']);
   }
 
@@ -45,10 +42,10 @@ export class RegistrarProductoComponent implements OnInit {
     //Cuando la cantidad de stock minimo es igual a cero, entonces no genera alerta.
     if (this.producto.stock_minimo < 0) {
       Swal.fire('Producto', `La cantidad de stock del producto, no puede ser menor a 0`, `success`);
-    }else if (this.producto.descripcion === "")
+    } else if (this.producto.descripcion === "")
       Swal.fire('Producto', `La descripción del producto, no puede ser vacia`, `success`);
     else {
-       this.guardarProducto();
+      this.guardarProducto();
     }
   }
 

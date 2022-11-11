@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bodega } from './bodega';
 import { HttpClient } from '@angular/common/http';
+import { Compania } from '../bodega-crud/compania';
 
 @Injectable({
   providedIn: 'root'
@@ -50,8 +51,8 @@ export class BodegaService {
   }
 
 //Este metodo, nos sirve para obtener los companias
-  obtenerListaCompanias(): Observable<Bodega[]> {
-    return this.httpClient.get<Bodega[]>(`${this.baseURLCompania}`);
+  obtenerListaCompanias(): Observable<Compania[]> {
+    return this.httpClient.get<Compania[]>(`${this.baseURLCompania}`);
   }
 
 }
