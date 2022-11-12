@@ -36,9 +36,9 @@ export class DetallesBodegaComponent implements OnInit {
      // console.log(datoCompania);
     //});
 
-    for (let comp of this.companias){
+   /* for (let comp of this.companias){
       console.log(comp.id);
-    }
+    }*/
 
   }
 

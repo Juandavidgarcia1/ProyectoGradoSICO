@@ -16,23 +16,9 @@
 
     </div>
 
-    <!--
-	 <div class="form-group">
-      <label>Compania: </label>
-      <input type = "number"
-      class="form-control"
-      id = "id_cia"
-      [(ngModel)] = "bodega.id_cia"
-      name = "id"
-      disabled="true"
-      >
-    </div>
-
-    disabled="true"
-  -->
  <div class="form-group">
   <label>compania:</label>
-  <select class="form-control"  [(ngModel)]="compania" name="compania"   id = "compania" name = "compania"   disabled="true">
+  <select class="form-control"  [(ngModel)]="compania" name="compania"   id = "compania" disabled="true">
 
     <option *ngFor="let compania of companias" [value]="compania.id"   >
     <!--    <label *ngIf="bodega.id_cia==compania.id" >-->
@@ -72,9 +58,6 @@
       >
 
     </div>
-
-
-
     <p></p>
     <button class="btn btn-success" [disabled]= "!bodegaForm.form.valid">Guardar</button>
   </form>

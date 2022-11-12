@@ -13,13 +13,24 @@ export class ActualizarTerceroComponent implements OnInit {
 
   id: number;
   tercero: Tercero = new Tercero();
+
+ tipoTerceros: any;// lista de tipoterceros
+ tipoTercero: number;// lista de tipoterceros
+
   constructor(private terceroService: TerceroService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
     this.id = this.route.snapshot.params['id'];
     this.terceroService.obtenerTerceroPorId(this.id).subscribe(dato => {
       this.tercero = dato;
-    }, error => console.log(error));
+      this.obtenerTipoTerceros();
+      this.tipoTercero = this.tercero.tipo_tercero;
+    }, error =>
+    //console.log(error);
+    Swal.fire('Tercero', error.error.mensaje, `success`)
+
+    );
   }
 
   irAlaListaDeTerceros() {
@@ -28,8 +39,23 @@ export class ActualizarTerceroComponent implements OnInit {
   }
 
   onSubmit() {
+
+
+    this.tercero.tipo_tercero = this.tipoTercero;
     this.terceroService.actualizarTercero(this.id, this.tercero).subscribe(dato => {
       this.irAlaListaDeTerceros();
-    }, error => console.log(error));
+   //   this.obtenerTipoTerceros();
+
+    }, error =>
+    //console.log(error);
+    Swal.fire('Bodega', error.error.mensaje, `success`)
+    );
   }
+
+    //Lista de terceros
+    private obtenerTipoTerceros(){
+      this.terceroService.obtenerTiposTercero().subscribe(dato=> {
+        this.tipoTerceros = dato;
+      });
+    }
 }

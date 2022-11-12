@@ -14,6 +14,10 @@ export class DetallesTerceroComponent implements OnInit {
   id:number;
   //id_cia:number;
   tercero:Tercero;
+
+  tipos: any;// lista de companias
+  tipo: number;// lista de companias
+
   constructor(private route:ActivatedRoute,private terceroServicio:TerceroService) { }
 
   ngOnInit(): void {
@@ -23,6 +27,8 @@ export class DetallesTerceroComponent implements OnInit {
       this.tercero = dato;
       Swal.fire(`Detalles del tercero :${this.tercero.descripcion}`);
     });
+
+    this.obtenerTipoTerceros();
   }
 
   //Generador de PDF
@@ -35,6 +41,13 @@ export class DetallesTerceroComponent implements OnInit {
         pdf.save("Documento-Actual.pdf")
       }
     })
+  }
+
+   //Lista de terceros
+   private obtenerTipoTerceros(){
+    this.terceroServicio.obtenerTiposTercero().subscribe(dato=> {
+      this.tipos = dato;
+    });
   }
 
 

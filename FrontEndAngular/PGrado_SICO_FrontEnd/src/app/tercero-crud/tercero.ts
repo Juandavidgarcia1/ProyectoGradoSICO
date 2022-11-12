@@ -5,4 +5,6 @@ export class Tercero {
   telefono_1:string;
   telefono_2:string;
   tipo_tercero:number;
+  //Para consulta
+  tipo:string;
 }

@@ -42,6 +42,7 @@
       maxlength="15"
       placeholder="Digite el numero "
       #numero = "ngModel"
+      disabled="true"
       >
     </div>
 
@@ -74,16 +75,18 @@
       >
 
     </div>
-	 <div class="form-group">
-      <label>Tipo tercero: </label>
-      <input type = "number"
-      class="form-control"
-      id = "tipo_tercero"
-      [(ngModel)] = "tercero.tipo_tercero"
-      name = "tipo_tercero"
-      disabled="true"
-      >
+
+
+    <div class="form-group">
+      <label>tipo Tercero:</label>
+      <select class="form-control"  [(ngModel)]="tipoTercero"  id = "tipoTercero"   name = "tipoTercero"  >
+        <option *ngFor="let tipoTercero of tipoTerceros" [value]="tipoTercero.id"   >
+              {{ tipoTercero.id }}-{{ tipoTercero.descripcion }}
+        </option>
+      </select>
     </div>
+
+
 
     <p></p>
     <button class="btn btn-success" [disabled]= "!terceroForm.form.valid">Guardar</button>

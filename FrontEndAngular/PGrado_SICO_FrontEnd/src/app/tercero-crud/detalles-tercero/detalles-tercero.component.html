@@ -17,12 +17,11 @@
 <div>
     <label><b>Telefono 2 : </b> {{ tercero.telefono_2 }}</label>
   </div>
-<div>
-    <label><b>Tipo tercero : </b> {{ tercero.tipo_tercero }}</label>
-  </div>
-
-
-
+ <div *ngFor="let tipo of tipos"  value="tercero.tipo_tercero">
+  <label  *ngIf="tercero.tipo_tercero==tipo.id"><b>Tipo : </b>{{ tipo.id }}-{{ tipo.descripcion }}</label>
 </div>
+
+
+
 </div>
 

@@ -21,7 +21,9 @@ export class ListaTercerosComponent implements OnInit {
 
   private obtenerTerceros(){
     this.terceroServicio.obtenerListaTerceros().subscribe(dato=> {
+      console.log(dato);
       this.terceros = dato;
+
     });
 
   }
@@ -29,8 +31,6 @@ export class ListaTercerosComponent implements OnInit {
  actualizarTercero(id:number){
     this.router.navigate(['actualizar-tercero',id]);
   }
-
-
 
   eliminarTercero(id:number){
     Swal.fire({
