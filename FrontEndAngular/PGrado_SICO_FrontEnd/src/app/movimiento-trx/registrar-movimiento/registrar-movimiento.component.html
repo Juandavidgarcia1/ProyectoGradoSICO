@@ -10,7 +10,7 @@
 
       <label>Naturaleza del movimiento:</label>
       <select class="form-control" id="naturaleza" [(ngModel)]="naturaleza" name="naturaleza" [value]= "naturaleza">
-        <option *ngFor= "let naturaleza of naturalezas" [ngValue]= "naturaleza.id">{{naturaleza.descripcion}}</option>
+        <option *ngFor="let naturaleza of naturalezas" [ngValue]="naturaleza.id">{{naturaleza.id}}-{{naturaleza.descripcion}}</option>
       </select>
     </div>
 
@@ -18,7 +18,7 @@
 
       <label>Producto</label>
       <select class="form-control" id="producto" [(ngModel)]="producto" name="producto" [value]= "producto">
-        <option *ngFor="let producto of productos" [ngValue]="producto.id">{{producto.id}}-{{producto.descripcion}}</option>
+        <option *ngFor= "let producto of productos" [ngValue]= "producto.id">{{producto.id}}-{{producto.descripcion}}</option>
       </select>
     </div>
 
@@ -42,7 +42,7 @@
 
     <div class="form-group">
       <label>Cantidad</label>
-      <input type="number" class="form-control" id="cantidad_movto" [(ngModel)]= "movimiento.cantidad_movto"
+      <input type="number" class="form-control" id="cantidad_movto" [(ngModel)]="movimiento.cantidad_movto"
         name="cantidad_movto" required maxlength="6" placeholder="Digite la cantidad: " #cantidad_movto="ngModel">
       <!--
           validar
@@ -53,7 +53,7 @@
     <div class="form-group">
       <label>Fecha del movimiento:</label>
       <input type="date" class="form-control" id="fecha_movto" [(ngModel)]="movimiento.fecha_movto" name="fecha_movto"
-        placeholder="Seleccione la naturaleza de movimiento: " #fecha_movto="ngModel" >
+        placeholder="Seleccione la naturaleza de movimiento: " #fecha_movto="ngModel">
       <!--
           validar
             -->
