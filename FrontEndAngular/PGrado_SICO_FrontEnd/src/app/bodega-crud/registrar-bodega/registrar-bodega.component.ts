@@ -50,6 +50,7 @@ export class RegistrarBodegaComponent implements OnInit {
     private obtenerCompanias(){
       this.bodegaServicio.obtenerListaCompanias().subscribe(dato=> {
         this.companias = dato;
+       this.compania = this.companias[0].id; //Ubica el selected default de la primera posicion de las cias
       });
     }
 }

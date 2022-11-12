@@ -1,4 +1,4 @@
-import  Swal  from 'sweetalert2';
+//import  Swal  from 'sweetalert2';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import jsPDF from 'jspdf';
 import { Tercero } from '../tercero';
@@ -25,7 +25,7 @@ export class DetallesTerceroComponent implements OnInit {
     this.tercero = new Tercero();
     this.terceroServicio.obtenerTerceroPorId(this.id).subscribe(dato => {
       this.tercero = dato;
-      Swal.fire(`Detalles del tercero :${this.tercero.descripcion}`);
+      //Swal.fire(`Detalles del tercero :${this.tercero.descripcion}`);
     });
 
     this.obtenerTipoTerceros();

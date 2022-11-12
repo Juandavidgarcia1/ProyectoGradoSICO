@@ -1,4 +1,4 @@
-import  Swal  from 'sweetalert2';
+//import  Swal  from 'sweetalert2';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import jsPDF from 'jspdf';
 import { Producto } from '../producto';
@@ -25,7 +25,7 @@ export class DetallesProductoComponent implements OnInit {
     this.producto = new Producto(this.descripcion,this.stock_minimo);
     this.productoServicio.obtenerProductoPorId(this.id).subscribe(dato => {
       this.producto = dato;
-      Swal.fire(`Detalles del producto :${this.producto.descripcion}`);
+     // Swal.fire(`Detalles del producto :${this.producto.descripcion}`);
     });
   }
 

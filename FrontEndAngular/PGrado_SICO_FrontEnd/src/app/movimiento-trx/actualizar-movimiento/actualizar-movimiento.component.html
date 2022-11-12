@@ -28,7 +28,7 @@
 
       <label>Naturaleza del movimiento:</label>
       <select class="form-control" id="naturaleza" [(ngModel)]="naturaleza" name="naturaleza" value="movimiento.id_naturaleza">
-        <option *ngFor="let naturaleza of naturalezas">
+        <option *ngFor= "let naturaleza of naturalezas"  [ngValue]= "naturaleza.id">
             {{naturaleza.id}}-{{naturaleza.descripcion}}
       </option>
       </select>
@@ -38,7 +38,7 @@
 
       <label>Producto</label>
       <select class="form-control" id="producto" [(ngModel)]="producto" name="producto" value="movimiento.id_producto_movto">
-        <option *ngFor="let producto of productos">
+        <option *ngFor= "let producto of productos"  [ngValue]= "producto.id">
             {{movimiento.id_producto_movto}}-{{producto.descripcion}}
       </option>
       </select>
@@ -47,7 +47,7 @@
  <div class="form-group">
   <label>Bodega</label>
   <select class="form-control" id="bodega" [(ngModel)]="bodega" name="bodega" value="movimiento.id_bodega_movto">
-    <option *ngFor="let bodega of bodegas">
+    <option *ngFor= "let bodega of bodegas" [ngValue]= "bodega.id">
         {{movimiento.id_bodega_movto}}-{{bodega.descripcion}}
   </option>
   </select>
@@ -56,7 +56,7 @@
 <div class="form-group">
   <label>Tercero</label>
   <select class="form-control" id="tercero" [(ngModel)]="tercero" name="tercero" >
-    <option *ngFor="let tercero of terceros" [ngValue]="tercero.id">
+    <option *ngFor= "let tercero of terceros" [ngValue]= "tercero.id">
         {{tercero.numero}}-{{tercero.descripcion}}
   </option>
   </select>

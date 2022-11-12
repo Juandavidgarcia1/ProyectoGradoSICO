@@ -7,8 +7,8 @@
     <div class="form-group">
 
       <label>Seleccione  la compania:</label>
-      <select class="form-control" id="compania" [(ngModel)]="compania" name="compania" value="1" >
-        <option *ngFor="let compania of companias" [ngValue]="compania.id">{{compania.descripcion}}</option>
+      <select class="form-control" id="compania" [(ngModel)]= "compania" name="compania" [value]= "compania" >
+        <option *ngFor= "let compania of companias" [ngValue]= "compania.id"> {{compania.descripcion}}</option>
       </select>
     </div>
 

@@ -35,16 +35,20 @@ export class ActualizarMovimientoComponent implements OnInit {
     this.obtenerProductos();
     this.obtenerTerceros();
 
-    this.naturaleza = this.movimiento.id_naturaleza
-
     this.id = this.route.snapshot.params['id'];
     this.movimientoServicio.obtenerMovimientoPorId(this.id).subscribe(dato => {
       this.movimiento = dato;
+      this.naturaleza = this.movimiento.id_naturaleza;
+      this.bodega = this.movimiento.id_bodega_movto;
+      this.producto = this.movimiento.id_producto_movto;
+      this.tercero = this.movimiento.id_tercero_movto;
+
+
     }, error => console.log(error));
   }
 
   irAlaListaDeMovimientos() {
-    Swal.fire('Movimiento actualizado', `El movimiento ${this.movimiento.id} ha sido actualizado con exito`, `success`);
+    //Swal.fire('Movimiento actualizado', `El movimiento ${this.movimiento.id} ha sido actualizado con exito`, `success`);
     this.router.navigate(['/movimientos']);
   }
 

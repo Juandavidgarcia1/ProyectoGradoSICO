@@ -1,4 +1,4 @@
-import Swal from 'sweetalert2';
+//import Swal from 'sweetalert2';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import jsPDF from 'jspdf';
 import { Bodega } from '../bodega';
@@ -27,21 +27,10 @@ export class DetallesBodegaComponent implements OnInit {
         //console.log(datoCompania);
         //this.bodega.compania = datoCompania.descripcion;
       //})
-
-      Swal.fire(`Detalles de la bodega :${this.bodega.descripcion}`);
-
+    //  Swal.fire(`Detalles de la bodega :${this.bodega.descripcion}`);
     });
     this.obtenercompanias();
-    //this.bodegaServicio.obtenerCompaniaPorId(this.bodega.id_cia).subscribe(datoCompania => {
-     // console.log(datoCompania);
-    //});
-
-   /* for (let comp of this.companias){
-      console.log(comp.id);
-    }*/
-
   }
-
 
   //Generador de PDF
   @ViewChild('content', { static: false }) el!: ElementRef;
@@ -55,16 +44,11 @@ export class DetallesBodegaComponent implements OnInit {
     })
   }
 
-
-
    //Lista de companias
    private obtenercompanias() {
     this.bodegaServicio.obtenerListaCompanias().subscribe(dato => {
       this.companias = dato;
-
-
     });
-
   }
 
 

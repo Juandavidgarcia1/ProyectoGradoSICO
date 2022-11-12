@@ -44,6 +44,7 @@ export class RegistrarTerceroComponent implements OnInit {
     private obtenerTipoTerceros(){
       this.terceroServicio.obtenerTiposTercero().subscribe(dato=> {
         this.tipoTerceros = dato;
+        this.tipoTercero = this.tipoTerceros[0].id;
       });
     }
 

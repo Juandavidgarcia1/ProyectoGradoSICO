@@ -13,4 +13,5 @@ export class Movimiento {
   producto: String;
   bodega: String;
   tercero: String;
+  usuario: String;
 }
