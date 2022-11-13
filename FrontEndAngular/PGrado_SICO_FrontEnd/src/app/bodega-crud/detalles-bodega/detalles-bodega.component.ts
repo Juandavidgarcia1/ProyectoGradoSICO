@@ -23,12 +23,7 @@ export class DetallesBodegaComponent implements OnInit {
     this.bodegaServicio.obtenerBodegaPorId(this.id).subscribe(dato => {
       //console.log(dato);
       this.bodega = dato;
-      //this.bodegaServicio.obtenerCompaniaPorId(this.bodega.id_cia).subscribe(datoCompania => {
-        //console.log(datoCompania);
-        //this.bodega.compania = datoCompania.descripcion;
-      //})
-    //  Swal.fire(`Detalles de la bodega :${this.bodega.descripcion}`);
-    });
+  });
     this.obtenercompanias();
   }
 
@@ -39,7 +34,7 @@ export class DetallesBodegaComponent implements OnInit {
     let pdf = new jsPDF('p', 'pt', 'a1');
     pdf.html(this.el.nativeElement, {
       callback: (pdf) => {
-        pdf.save("Documento-Actual.pdf")
+        pdf.save("Documento-Detalle de la bodega.pdf")
       }
     })
   }

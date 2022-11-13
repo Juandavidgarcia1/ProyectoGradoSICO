@@ -37,7 +37,7 @@ export class ListaBodegasComponent implements OnInit {
     let pdf = new jsPDF('p', 'pt', 'a1');
     pdf.html(this.el.nativeElement, {
       callback: (pdf) => {
-        pdf.save("Documento-Actual.pdf")
+        pdf.save("Documento-Lista de bodegas.pdf")
       }
     })
   }

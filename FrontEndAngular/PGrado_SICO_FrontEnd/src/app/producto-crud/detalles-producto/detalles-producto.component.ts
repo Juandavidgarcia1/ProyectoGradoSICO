@@ -36,7 +36,7 @@ export class DetallesProductoComponent implements OnInit {
     let pdf = new jsPDF('p', 'pt', 'a1');
     pdf.html(this.el.nativeElement, {
       callback: (pdf) => {
-        pdf.save("Documento-Actual.pdf")
+        pdf.save("Documento-Detalle del producto.pdf")
       }
     })
   }
