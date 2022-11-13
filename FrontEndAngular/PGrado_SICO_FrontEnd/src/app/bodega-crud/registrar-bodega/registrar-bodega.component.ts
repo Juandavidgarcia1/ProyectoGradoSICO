@@ -30,7 +30,7 @@ export class RegistrarBodegaComponent implements OnInit {
       console.log(dato);
       this.irAlaListaDeBodegas();
     },error =>
-      Swal.fire('Bodega', error.error.mensaje, `success`)
+      Swal.fire('Bodega', error.error.mensaje, `error`)
 
     );
 

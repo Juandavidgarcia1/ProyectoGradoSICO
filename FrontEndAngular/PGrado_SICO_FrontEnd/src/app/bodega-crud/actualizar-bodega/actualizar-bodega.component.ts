@@ -31,7 +31,6 @@ export class ActualizarBodegaComponent implements OnInit {
       Swal.fire('Bodega', error.error.mensaje, `success`)
     );
 
-
 }
 
   irAlaListaDeBodegas() {

@@ -1,3 +1,4 @@
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { Router, Routes } from '@angular/router';
 import { Tercero } from '../tercero';
@@ -28,7 +29,10 @@ export class RegistrarTerceroComponent implements OnInit {
     this.terceroServicio.registrarTercero(this.tercero).subscribe(dato => {
       console.log(dato);
       this.irAlaListaDeTerceros();
-    },error => console.log(error));
+    },error =>
+        //console.log(error);
+        Swal.fire('Tercero', error.error.mensaje, `error`)
+    );
   }
 
   irAlaListaDeTerceros(){
