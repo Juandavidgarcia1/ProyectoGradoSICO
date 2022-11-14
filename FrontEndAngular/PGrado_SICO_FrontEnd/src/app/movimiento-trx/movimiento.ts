@@ -6,7 +6,7 @@ export class Movimiento {
   id_tercero_movto:number;
   cantidad_movto:number;
   id_naturaleza:number;
-   id_user:number;
+  id_user:number;
   fecha_movto:Date;
   //para consulta
   naturaleza:String;

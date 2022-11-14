@@ -22,11 +22,13 @@ import { RegistrarMovimientoComponent } from './movimiento-trx/registrar-movimie
 import { ActualizarMovimientoComponent } from './movimiento-trx/actualizar-movimiento/actualizar-movimiento.component';
 import { DetallesMovimientoComponent } from './movimiento-trx/detalles-movimiento/detalles-movimiento.component';
 //////////////////////////////////////Login////////////////////////////////////
+import { ListaExistenciasComponent } from './existencia-query/lista-existencias/lista-existencias.component';
+//////////////////////////////////////Login////////////////////////////////////
 import { LoginComponent } from './auth/login.component';
 import { RegistroComponent } from './auth/registro.component';
 import { IndexComponent } from './index/index.component';
 import { ProdGuardService as guard } from './producto-crud/guards/prod-guard.service';
-import { AuthGaurdService } from './service/auth-gaurd.service';
+//import { AuthGaurdService } from './service/auth-gaurd.service';
 
 
 const routes: Routes = [
@@ -57,6 +59,9 @@ const routes: Routes = [
   { path: 'registrar-movimiento', component:RegistrarMovimientoComponent,canActivate:[guard], data: { expectedRol: ['admin'] }},
   { path: 'actualizar-movimiento/:id', component: ActualizarMovimientoComponent  ,canActivate:[guard], data: { expectedRol: ['admin']}},
   { path: 'detalles-movimiento/:id', component: DetallesMovimientoComponent ,canActivate:[guard], data: { expectedRol: ['admin', 'user'] }},
+
+  //{ path: '', redirectTo: 'movimientos', pathMatch: 'full' },
+  { path: 'existencias', component: ListaExistenciasComponent ,canActivate:[guard], data: { expectedRol: ['admin', 'user'] }},
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

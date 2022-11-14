@@ -27,6 +27,9 @@ import { ListaMovimientosComponent } from './movimiento-trx/lista-movimientos/li
 import { RegistrarMovimientoComponent } from './movimiento-trx/registrar-movimiento/registrar-movimiento.component';
 import { ActualizarMovimientoComponent } from './movimiento-trx/actualizar-movimiento/actualizar-movimiento.component';
 import { DetallesMovimientoComponent } from './movimiento-trx/detalles-movimiento/detalles-movimiento.component';
+//Existencias
+import { ListaExistenciasComponent } from './existencia-query/lista-existencias/lista-existencias.component';
+
 // external
 //import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { ToastrModule } from 'ngx-toastr';
@@ -54,6 +57,7 @@ import { IndexComponent } from './index/index.component';
     RegistrarMovimientoComponent,
     ActualizarMovimientoComponent,
     DetallesMovimientoComponent,
+    ListaExistenciasComponent,
     LoginComponent,
     RegistroComponent,
     MenuComponent,
