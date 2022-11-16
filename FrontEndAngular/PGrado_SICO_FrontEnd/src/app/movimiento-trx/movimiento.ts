@@ -14,5 +14,4 @@ export class Movimiento {
   bodega: String;
   tercero: String;
   usuario: String;
-  fecha_default:Date;
 }

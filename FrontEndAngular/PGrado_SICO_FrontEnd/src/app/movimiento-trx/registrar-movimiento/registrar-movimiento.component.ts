@@ -48,9 +48,8 @@ export class RegistrarMovimientoComponent implements OnInit {
     this.movimientoServicio.registrarMovimiento(this.movimiento).subscribe(
       dato => {
         console.log(dato);
-      this.msg =dato;
-
-      console.log(this.msg.mensaje);
+        this.msg =dato;
+       // console.log(this.msg.mensaje);
 
         Swal.fire('Movimiento', this.msg.mensaje , `success`);
         this.irAlaListaDeMovimientos();

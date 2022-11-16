@@ -59,9 +59,7 @@ export class ActualizarMovimientoComponent implements OnInit {
       this.movimientoServicio.actualizarMovimiento(this.id, this.movimiento).subscribe(dato => {
         this.irAlaListaDeMovimientos();
       }, error => console.log(error));
-
     }
-
   }
 
   //Dropdown list inicio
@@ -71,7 +69,6 @@ export class ActualizarMovimientoComponent implements OnInit {
     this.movimientoServicio.obtenerListaBodegas().subscribe(dato => {
       this.bodegas = dato;
     });
-
   }
 
   //Lista de naturalezas
@@ -94,6 +91,5 @@ export class ActualizarMovimientoComponent implements OnInit {
       this.terceros = dato;
     });
   }
-
   //Dropdown list Fin
 }
