@@ -1,43 +1,67 @@
 <app-menu></app-menu>
 <div id="content" #content class="margen">
-<h3>lista de movimientos - <button (click)="GenerarPdf()"><i class="bi bi-file-pdf"></i></button></h3>
-<table class="table table-responsive-xxl table-sm" >
-  <thead class="table-dark">
-    <tr>
-      <th>ID </th>
-	  <th>Tipo movimiento</th>
-	  <th>Producto</th>
-	  <th>Bodega</th>
-	  <th>Tercero</th>
-	  <th>Cantidad </th>
-     <th> Fecha </th>
-	    <!-- <th> Usuario </th>-->
-    <th> Funciones </th>
-  </tr>
+  <h3>lista de movimientos - <button (click)="GenerarPdf()"><i class="bi bi-file-pdf"></i></button></h3>
 
-  </thead>
+<!--
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-text bg-white">
+      <i class="fa fa-search"></i>
+    </div>
+    <input type="text" class="form-control" name="filtrar" placeholder="Buscar" [(ngModel)]= "filterId" >
+    </div>
+  </div>
+-->
+  <table class="table table-responsive-xxl table-sm">
+    <thead class="table-dark">
 
-  <tbody>
+      <tr>
+        <th>ID </th>
+        <th>Movimiento</th>
+        <th>Producto</th>
+        <th>Bodega</th>
+        <th>Tercero</th>
+        <th>Cantidad</th>
+        <th>Fecha</th>
+        <th> Funciones </th>
+      </tr>
 
-    <tr *ngFor="let movimiento of movimientos">
-      <td> {{movimiento.id}}</td>
-      <td> {{movimiento.id_naturaleza}}-{{movimiento.naturaleza}}</td>
-      <td> {{movimiento.id_producto_movto}}-{{movimiento.producto}}</td>
-      <td> {{movimiento.id_bodega_movto}}-{{movimiento.bodega}}</td>
-      <td> {{movimiento.id_tercero_movto}}-{{movimiento.tercero}}</td>
-      <td> {{movimiento.cantidad_movto}}</td>
-      <td> {{movimiento.fecha_movto}}</td>
-      <!--<td> {{movimiento.id_user}}-{{ movimiento.usuario }}</td>-->
+    </thead>
 
-	  <td>
-        <button (click)="actualizarMovimiento(movimiento.id)" class="btn btn-primary  btn-sm"><i class="bi bi-sd-card"></i></button>
-        <!--  <button (click)="eliminarMovimiento(movimiento.id)" class="btn btn-danger btn-sm" style="margin-left: 10px;"><i class="bi bi-trash3-fill"></i></button>-->
-        <button (click)="verDetallesDelMovimiento(movimiento.id)" class="btn btn-dark  btn-sm" style="margin-left: 10px;"><i class="bi bi-eyeglasses"></i></button>
-      </td>
+    <tbody>
 
-    </tr>
+      <tr>
+        <td>
+        <input  type="text" class="form-control" name="filtrar" placeholder="Buscar ID" [(ngModel)]= "filterId" ></td>
+        <td><input  type="text" class="form-control" name="filtrartipo" placeholder="Buscar tipo" [(ngModel)]= "filterTipo" ></td>
+        <td><input  type="text" class="form-control" name="filtrarproducto" placeholder="Buscar producto" [(ngModel)]= "filterProducto" ></td>
+        <td><input  type="text" class="form-control" name="filtrarbodega" placeholder="Buscar bodega" [(ngModel)]= "filterBodega" ></td>
+        <td><input  type="text" class="form-control" name="filtrartercero" placeholder="Buscar tercero" [(ngModel)]= "filterTercero" ></td>
+        <td><input  type="text" class="form-control" name="filtrarcantidad" placeholder="Buscar cantidad" [(ngModel)]= "filterCantidad" ></td>
+        <td><input  type="text" class="form-control" name="filtrarfecha" placeholder="Buscar fecha" [(ngModel)]= "filterFecha"></td>
+        <td>  </td>
+      </tr>
 
-  </tbody>
+      <tr *ngFor= "let movimiento of movimientos | filter:'id':filterId:filterTipo:filterProducto:filterBodega:filterTercero:filterCantidad:filterFecha">
+        <td> {{movimiento.id}}</td>
+        <td> {{movimiento.id_naturaleza}}-{{movimiento.naturaleza}}</td>
+        <td> {{movimiento.id_producto_movto}}-{{movimiento.producto}}</td>
+        <td> {{movimiento.id_bodega_movto}}-{{movimiento.bodega}}</td>
+        <td> {{movimiento.id_tercero_movto}}-{{movimiento.tercero}}</td>
+        <td> {{movimiento.cantidad_movto}}</td>
+        <td> {{movimiento.fecha_movto}}</td>
 
-</table>
+        <td>
+          <button (click)="actualizarMovimiento(movimiento.id)" class="btn btn-primary  btn-sm"><i
+              class="bi bi-sd-card"></i></button>
+          <!--  <button (click)="eliminarMovimiento(movimiento.id)" class="btn btn-danger btn-sm" style="margin-left: 10px;"><i class="bi bi-trash3-fill"></i></button>-->
+          <button (click)="verDetallesDelMovimiento(movimiento.id)" class="btn btn-dark  btn-sm"
+            style="margin-left: 10px;"><i class="bi bi-eyeglasses"></i></button>
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
 </div>

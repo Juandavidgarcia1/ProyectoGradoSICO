@@ -4,6 +4,7 @@ import { Movimiento } from '../movimiento';
 import { MovimientoService } from '../movimiento.service';
 import { Router } from '@angular/router';
 import Swal from'sweetalert2';
+//import {FilterPipe} from '../../pipes/filter.pipe';
 
 @Component({
   selector: 'app-lista-movimientos',
@@ -13,10 +14,21 @@ import Swal from'sweetalert2';
 
 export class ListaMovimientosComponent implements OnInit {
   movimientos: Movimiento[];
-  constructor(private movimientoServicio: MovimientoService,private router:Router) { }
+
+  //Variable para filtros;
+  filterId:'';
+  filterTipo:'';
+  filterProducto:'';
+  filterBodega:'';
+  filterTercero:'';
+  filterCantidad:'';
+  filterFecha:'';
+
+constructor(private movimientoServicio: MovimientoService,private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerMovimientos();
+    //this.filterFecha = '2022-';
   }
 
   private obtenerMovimientos(){

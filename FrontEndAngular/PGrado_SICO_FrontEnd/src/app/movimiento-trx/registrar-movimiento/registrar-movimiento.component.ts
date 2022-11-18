@@ -4,6 +4,7 @@ import { Router, Routes } from '@angular/router';
 import { Movimiento } from '../movimiento';
 import { MovimientoService } from '../movimiento.service';
 
+
 @Component({
   selector: 'app-registrar-movimiento',
   templateUrl: './registrar-movimiento.component.html',
