@@ -13,11 +13,21 @@ import Swal from'sweetalert2';
 
 export class ListaExistenciasComponent implements OnInit {
   existencias: Existencia[];
+
+  //filtros que recibe el pipe
+  filterId:'';
+  filterTipo:'';
+  filterProducto:'';
+  filterBodega:'';
+  filterTercero:'';
+  filterCantidad:'';
+  filterFecha:'';
+
   constructor(private existenciaServicio: ExistenciaService,private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerExistencias();
-    
+
   }
 
   private obtenerExistencias(){

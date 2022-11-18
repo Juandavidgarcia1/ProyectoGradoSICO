@@ -21,11 +21,9 @@ export class MovimientoService {
  private baseURLProductos = "http://localhost:8080/api/v1/productos/lista";
   //Url que contiene todas las naturalezas con el fin de hacer el dropdownlist
   private baseURLTerceros = "http://localhost:8080/api/v1/terceros/listaTerceros";
-
   //mensaje: string = "";
 
   constructor(private httpClient: HttpClient) { }
-
 
   //Este metodo, nos sirve para obtener los movimientos (un observable es un patr0n de diseño)
   obtenerListaMovimientos(): Observable<Movimiento[]> {

@@ -10,14 +10,20 @@
 	  <th>Existencia</th>
 
   </tr>
-
   </thead>
 
   <tbody>
 
-    <tr *ngFor="let existencia of existencias">
+    <tr>
+      <td><input  type="text" class="form-control" name="filtrar" placeholder="Buscar ID" [(ngModel)]= "filterId" ></td>
+      <td><input  type="text" class="form-control" name="filtrarproducto" placeholder="Buscar producto" [(ngModel)]= "filterProducto" ></td>
+      <td><input  type="text" class="form-control" name="filtrarbodega" placeholder="Buscar bodega" [(ngModel)]= "filterBodega" ></td>
+      <td><input  type="text" class="form-control" name="filtrarcantidad" placeholder="Buscar cantidad" [(ngModel)]= "filterCantidad" ></td>
+    </tr>
+
+    <tr *ngFor= "let existencia of existencias | filter:'existencias':filterId:filterTipo:filterProducto:filterBodega:filterTercero:filterCantidad:filterFecha">
       <td> {{existencia.id}}</td>
-      <td> {{existencia.id_producto}}{{existencia.producto}}</td>
+      <td> {{existencia.id_producto}}-{{existencia.producto}}</td>
       <td> {{existencia.id_bodega}}-{{existencia.bodega}}</td>
       <td> {{existencia.cantidad_existencia}}</td>
 

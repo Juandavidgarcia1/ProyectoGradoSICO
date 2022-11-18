@@ -42,7 +42,7 @@
         <td>  </td>
       </tr>
 
-      <tr *ngFor= "let movimiento of movimientos | filter:'id':filterId:filterTipo:filterProducto:filterBodega:filterTercero:filterCantidad:filterFecha">
+      <tr *ngFor= "let movimiento of movimientos | filter:'movimientos':filterId:filterTipo:filterProducto:filterBodega:filterTercero:filterCantidad:filterFecha">
         <td> {{movimiento.id}}</td>
         <td> {{movimiento.id_naturaleza}}-{{movimiento.naturaleza}}</td>
         <td> {{movimiento.id_producto_movto}}-{{movimiento.producto}}</td>
